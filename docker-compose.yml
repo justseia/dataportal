@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+    nginx:
+        container_name: dataportal_nginx
+        image: nginx:latest
+        restart: always
+        ports:
+            - "80:80"
+#            - "443:443"
+        volumes:
+            - ./:/var/www
+            - ./_docker/nginx/conf.d:/etc/nginx/conf.d
+            - /etc/letsencrypt:/etc/letsencrypt
+        depends_on:
+            - app
+        networks:
+            - dataportal-admin
+
+    app:
+        container_name: dataportal_app
+        restart: always
+        build:
+            context: .
+            dockerfile: _docker/app/Dockerfile
+        expose:
+            - "9000"
+        volumes:
+            - ./:/var/www
+            - /etc/letsencrypt:/etc/letsencrypt
+        depends_on:
+            - db
+        networks:
+            - dataportal-admin
+
+    db:
+        container_name: dataportal_db
+        image: postgres:16.0
+        restart: always
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=dataportalkz2024
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./:/var/www
+            - db:/var/lib/postgresql/data
+        networks:
+            - dataportal-admin
+
+networks:
+    dataportal-admin:
+        driver: bridge
+
+volumes:
+    db:
+        driver: local
+
+#    sudo apt-get install certbot python3-certbot-nginx
+#    apk add certbot certbot-nginx
+#    certbot --nginx -d dataportal.kz -d www.dataportal.kz
