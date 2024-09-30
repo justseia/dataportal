@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 //         $this->call(FaqSeeder::class);
-         $this->call(Justice2023::class);
+//         $this->call(Justice2023::class);
 //         $this->call(Values2014::class);
 //         $this->call(Culture2021::class);
 //         $this->call(People2020::class);
