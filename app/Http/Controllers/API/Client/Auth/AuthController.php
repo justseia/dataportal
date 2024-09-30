@@ -4,10 +4,12 @@ namespace App\Http\Controllers\API\Client\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client\Client;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
@@ -71,11 +73,44 @@ class AuthController extends Controller
             'email' => 'required|email|exists:clients,email',
         ]);
 
-        $status = Password::sendResetLink(
+        $status = Password::broker('clients')->sendResetLink(
             $request->only('email')
         );
 
         if ($status == Password::RESET_LINK_SENT) {
+            return response()->json([
+                'status' => true,
+                'message' => __($status),
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => __($status),
+        ], 400);
+    }
+
+    public function reset(Request $request): JsonResponse
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email|exists:clients,email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $status = Password::broker('clients')->reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->password = Hash::make($password);
+                $user->setRememberToken(Str::random(60));
+
+                $user->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        if ($status == Password::PASSWORD_RESET) {
             return response()->json([
                 'status' => true,
                 'message' => __($status),

@@ -6,18 +6,25 @@ use App\Helpers\PhoneNumberHelper;
 use App\Helpers\StringHelper;
 use App\Traits\UUID;
 use App\Casts\PhoneNumberCast;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Client extends Model
+class Client extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use HasFactory;
     use HasApiTokens;
     use UUID;
+    use Authenticatable;
+    use CanResetPassword;
+    use Notifiable;
 
     protected $guarded = [];
 
