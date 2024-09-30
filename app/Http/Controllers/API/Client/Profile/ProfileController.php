@@ -12,6 +12,7 @@ class ProfileController extends Controller
     public function index(): JsonResponse
     {
         $profile = auth()->user();
+        $profile = $profile->load(['clientType']);
 
         return response()->json([
             'success' => true,
