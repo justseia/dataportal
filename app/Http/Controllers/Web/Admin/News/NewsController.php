@@ -36,9 +36,15 @@ class NewsController extends Controller
     public function store(Request $request): RedirectResponse
     {
         try {
+            $filePath = null;
+            if ($request->hasFile('file')) {
+                $filePath = $request->file('file')->store('uploads', 'public');
+            }
+
             $news = News::query()->create([
                 'title' => $request->title,
                 'description' => $request->description,
+                'image' => $filePath,
             ]);
         } catch (Exception $e) {
             return back()->withErrors('Ошибка при созаднии публикации: ' . $e->getMessage());

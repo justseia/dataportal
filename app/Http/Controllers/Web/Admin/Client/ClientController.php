@@ -52,6 +52,7 @@ class ClientController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'access_paid_content' => $request->access_paid_content,
+                'close_all_content' => $request->close_all_content,
             ]);
         } catch (Exception $e) {
             return back()->withErrors('Ошибка при создании клиента: ' . $e->getMessage());
@@ -83,6 +84,7 @@ class ClientController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'access_paid_content' => $request->access_paid_content,
+                'close_all_content' => $request->close_all_content,
             ]);
         } catch (Exception $e) {
             return back()->withErrors('Ошибка при обновлении клиента: ' . $e->getMessage());

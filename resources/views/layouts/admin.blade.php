@@ -19,7 +19,7 @@
     <body>
 
         @if (!Route::is('admin.auth.index'))
-            <x-admin.header/>
+            @include('components.admin.header')
         @endif
 
         @yield('content')

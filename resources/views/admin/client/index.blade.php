@@ -96,7 +96,7 @@
                                                 {{ $client->phone_number }}
                                             </td>
                                             <td>
-                                                {{ $client->clientType->type }}
+                                                {{ $client->clientType?->type }}
                                             </td>
                                             <td>
                                                 {!! $client->accessPaidContent() !!}
