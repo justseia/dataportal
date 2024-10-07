@@ -6,10 +6,10 @@
             <div class="container-xl">
                 <div class="row align-items-center mb-3">
                     <div class="col">
-                        <h2 class="page-title">Роли</h2>
+                        <h2 class="page-title">Админ</h2>
                     </div>
                     <div class="col d-flex justify-content-end gap-2">
-                        <a href="{{ route('admin.admins.create') }}" class="btn btn-primary">Создать роль</a>
+                        <a href="{{ route('admin.admins.create') }}" class="btn btn-primary">Создать админ</a>
                     </div>
                 </div>
                 <div class="row">

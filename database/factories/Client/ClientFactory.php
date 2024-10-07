@@ -24,7 +24,7 @@ class ClientFactory extends Factory
             'phone_number' => '7705' . fake()->numberBetween(100, 999) . fake()->numberBetween(10, 99) . fake()->numberBetween(10, 99),
             'organization' => fake()->word(),
             'email' => fake()->safeEmail(),
-            'password' => Hash::make('asdasdasd'),
+            'password' => 'asdasdasd',
             'access_paid_content' => fake()->boolean(),
             'close_all_content' => fake()->boolean(),
             'client_type_id' => ClientType::inRandomOrder()->first()->id,

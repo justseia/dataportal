@@ -55,7 +55,7 @@ class ClientController extends Controller
                 'close_all_content' => $request->close_all_content,
             ]);
         } catch (Exception $e) {
-            return back()->withErrors('Ошибка при создании клиента: ' . $e->getMessage());
+            return back()->withInput()->withErrors('Ошибка при создании клиента: ' . $e->getMessage());
         }
 
         return redirect()->route('admin.clients.show', $client)
@@ -87,7 +87,7 @@ class ClientController extends Controller
                 'close_all_content' => $request->close_all_content,
             ]);
         } catch (Exception $e) {
-            return back()->withErrors('Ошибка при обновлении клиента: ' . $e->getMessage());
+            return back()->withInput()->withErrors('Ошибка при обновлении клиента: ' . $e->getMessage());
         }
 
         return back()->with('success', 'Успешно обновлено');

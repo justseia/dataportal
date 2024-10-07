@@ -49,7 +49,7 @@
                         <div class="col-md-6 col-lg-4">
                             <a href="{{ route('admin.news.show', $item) }}" class="text-decoration-none text-reset">
                                 <div class="card">
-                                    <div class="img-responsive img-responsive-21x9 card-img-top" style="background-image: url({{ $item->image }});"></div>
+                                    <div class="img-responsive img-responsive-21x9 card-img-top" style="background-image: url({{ config('app_config.image_url') . $item->image }});"></div>
                                     <div class="card-body">
                                         <h3 class="card-title text-one-line">{{ $item->title }}</h3>
                                         <p class="text-secondary text-two-line">{{ $item->description }}</p>

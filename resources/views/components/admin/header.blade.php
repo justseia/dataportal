@@ -95,84 +95,94 @@
                             </span>
                         </a>
                     </li>
-                    <li class="nav-item {{ Route::is('admin.clients.*') ? 'active' : null }}">
-                        <a class="nav-link" href="{{ route('admin.clients.index') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-square-rounded">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z"/>
-                                    <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"/>
-                                    <path d="M6 20.05v-.05a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v.05"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Пользователи
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item {{ Route::is('admin.news.*') ? 'active' : null }}">
-                        <a class="nav-link" href="{{ route('admin.news.index') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11"/>
-                                    <path d="M8 8l4 0"/>
-                                    <path d="M8 12l4 0"/>
-                                    <path d="M8 16l4 0"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Публикации
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item {{ Route::is('admin.reports.*') ? 'active' : null }}">
-                        <a class="nav-link" href="{{ route('admin.reports.index') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11"/>
-                                    <path d="M8 8l4 0"/>
-                                    <path d="M8 12l4 0"/>
-                                    <path d="M8 16l4 0"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Отчеты
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item {{ Route::is('admin.datasets.*') ? 'active' : null }}">
-                        <a class="nav-link" href="{{ route('admin.datasets.index') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-database">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/>
-                                    <path d="M4 6v6a8 3 0 0 0 16 0v-6"/>
-                                    <path d="M4 12v6a8 3 0 0 0 16 0v-6"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Данные
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item {{ Route::is('admin.admins.*') ? 'active' : null }}">
-                        <a class="nav-link" href="{{ route('admin.admins.index') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-plus">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
-                                    <path d="M16 19h6"/>
-                                    <path d="M19 16v6"/>
-                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Роли
-                            </span>
-                        </a>
-                    </li>
+                    @can(\App\Enums\AdminPermissions::CLIENT_GET)
+                        <li class="nav-item {{ Route::is('admin.clients.*') ? 'active' : null }}">
+                            <a class="nav-link" href="{{ route('admin.clients.index') }}">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-square-rounded">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z"/>
+                                        <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"/>
+                                        <path d="M6 20.05v-.05a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v.05"/>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Пользователи
+                                </span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can(\App\Enums\AdminPermissions::NEWS_GET)
+                        <li class="nav-item {{ Route::is('admin.news.*') ? 'active' : null }}">
+                            <a class="nav-link" href="{{ route('admin.news.index') }}">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11"/>
+                                        <path d="M8 8l4 0"/>
+                                        <path d="M8 12l4 0"/>
+                                        <path d="M8 16l4 0"/>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Публикации
+                                </span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can(\App\Enums\AdminPermissions::REPORT_GET)
+                        <li class="nav-item {{ Route::is('admin.reports.*') ? 'active' : null }}">
+                            <a class="nav-link" href="{{ route('admin.reports.index') }}">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11"/>
+                                        <path d="M8 8l4 0"/>
+                                        <path d="M8 12l4 0"/>
+                                        <path d="M8 16l4 0"/>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Отчеты
+                                </span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can(\App\Enums\AdminPermissions::DATABASE_GET)
+                        <li class="nav-item {{ Route::is('admin.datasets.*') ? 'active' : null }}">
+                            <a class="nav-link" href="{{ route('admin.datasets.index') }}">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-database">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/>
+                                        <path d="M4 6v6a8 3 0 0 0 16 0v-6"/>
+                                        <path d="M4 12v6a8 3 0 0 0 16 0v-6"/>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Данные
+                                </span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can(\App\Enums\AdminPermissions::ADMIN_GET)
+                        <li class="nav-item {{ Route::is('admin.admins.*') ? 'active' : null }}">
+                            <a class="nav-link" href="{{ route('admin.admins.index') }}">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-plus">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
+                                        <path d="M16 19h6"/>
+                                        <path d="M19 16v6"/>
+                                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title">
+                                    Админ
+                                </span>
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </div>
         </div>

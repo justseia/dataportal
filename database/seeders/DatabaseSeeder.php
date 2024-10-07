@@ -25,31 +25,26 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 //         $this->call(FaqSeeder::class);
-         $this->call(Justice2023::class);
-         $this->call(Values2014::class);
-         $this->call(Culture2021::class);
+//         $this->call(Justice2023::class);
+//         $this->call(Values2014::class);
+//         $this->call(Culture2021::class);
 //         $this->call(People2020::class);
-
-
-//        Faq::factory(10)->create();
-//        News::factory(40)->create();
 
         ClientType::factory(5)->create();
 
-        Client::factory(20)->create();
         Client::factory()->create([
             'first_name' => 'Seiitmurat',
             'last_name' => 'Kalmurat',
             'phone_number' => '77064301045',
             'organization' => 'ЖенПУ',
             'email' => 'test@dataportal.kz',
-            'password' => Hash::make('asdasdasd'),
+            'password' => 'asdasdasd',
         ]);
         Admin::factory()->create([
             'first_name' => 'Seiitmurat',
             'last_name' => 'Kalmurat',
             'email' => 'admin@dataportal.kz',
-            'password' => Hash::make('asdasdasd'),
+            'password' => 'asdasdasd',
             'remember_token' => Str::random(10),
         ]);
     }

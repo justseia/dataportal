@@ -11,5 +11,6 @@ class Permission extends SpatiePermission
     use HasFactory;
     use HasUuids;
 
+    public $table = 'permissions';
     protected $primaryKey = 'uuid';
 }
