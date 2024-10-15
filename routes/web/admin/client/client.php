@@ -9,4 +9,5 @@ Route::prefix('clients')->name('clients.')->group(function () {
     Route::post('/create', [ClientController::class, 'store'])->name('store');
     Route::get('/show/{client}', [ClientController::class, 'show'])->name('show');
     Route::post('/update/{client}', [ClientController::class, 'update'])->name('update');
+    Route::delete('/delete/{client}', [ClientController::class, 'delete'])->name('delete');
 });

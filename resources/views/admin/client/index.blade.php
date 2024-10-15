@@ -55,9 +55,11 @@
                     <div class="col">
                         <h2 class="page-title">Пользователи</h2>
                     </div>
-                    <div class="col d-flex justify-content-end gap-2">
-                        <a href="{{ route('admin.clients.create') }}" class="btn btn-primary">Создать пользователя</a>
-                    </div>
+                    @can('client_create')
+                        <div class="col d-flex justify-content-end gap-2">
+                            <a href="{{ route('admin.clients.create') }}" class="btn btn-primary">Создать пользователя</a>
+                        </div>
+                    @endcan
                 </div>
                 <div class="row">
                     <div class="card">

@@ -9,11 +9,13 @@ class ActivityLog
 {
     protected string $type;
     protected string $value;
+    protected string $cross;
 
-    public function __construct($type, $value)
+    public function __construct($type, $value, $cross = null)
     {
         $this->type = $type;
         $this->value = $value;
+        $this->cross = $cross;
     }
 
     public function create(): Model
@@ -21,6 +23,7 @@ class ActivityLog
         $data = [
             'type' => $this->type,
             'value' => $this->value,
+            'cross' => $this->cross,
             'client_id' => auth()->id(),
         ];
 

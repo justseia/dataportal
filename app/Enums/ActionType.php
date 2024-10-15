@@ -10,6 +10,8 @@ class ActionType
     const QUESTION = 'question';
     const CROSS = 'cross';
     const DOWNLOAD = 'download';
+    const RESEARCH = 'research';
+    const NEWS = 'news';
 
     public static function getActionTypeKey(): array
     {
@@ -20,6 +22,7 @@ class ActionType
             self::QUESTION,
             self::CROSS,
             self::DOWNLOAD,
+            self::RESEARCH,
         ];
     }
 
@@ -32,6 +35,8 @@ class ActionType
             self::QUESTION => 'Вопрос',
             self::CROSS => 'Корреляция',
             self::DOWNLOAD => 'Выгрузка',
+            self::RESEARCH => 'Каталог исследования',
+            self::NEWS => 'Публикация',
         ];
     }
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('client_id')->nullable()->constrained();
             $table->string('value')->nullable();
+            $table->string('cross')->nullable();
             $table->string('type')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();

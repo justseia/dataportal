@@ -9,5 +9,5 @@ Route::prefix('admins')->name('admins.')->group(function () {
     Route::post('/create', [AdminController::class, 'store'])->name('store');
     Route::get('/show/{admin}', [AdminController::class, 'show'])->name('show');
     Route::post('/update/{admin}', [AdminController::class, 'update'])->name('update');
-    Route::delete('/update/{admin}', [AdminController::class, 'delete'])->name('delete');
+    Route::delete('/delete/{admin}', [AdminController::class, 'delete'])->name('delete');
 });

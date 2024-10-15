@@ -16,6 +16,7 @@ class PermissionsSeeder extends Seeder
     public function run(): void
     {
         Permission::query()->delete();
+        Role::query()->delete();
 
         $permissions = AdminPermissions::getAdminPermissionsKey();
 

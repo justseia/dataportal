@@ -64,9 +64,6 @@
                             </div>
                             <div class="row pe-0">
                                 <div class="d-flex gap-2">
-                                    <a href="{{ route('admin.datasets.index') }}" class="btn btn-outline-warning ms-auto">
-                                        Назад
-                                    </a>
                                     <button type="submit" class="btn btn-primary">
                                         Обновить
                                     </button>

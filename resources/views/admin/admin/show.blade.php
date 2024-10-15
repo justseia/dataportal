@@ -53,9 +53,6 @@
                                                 Удалить
                                             </a>
                                         @endcan
-                                        <a href="{{ route('admin.admins.index') }}" class="btn btn-outline-warning ms-auto">
-                                            Назад
-                                        </a>
                                         <button type="submit" class="btn btn-primary">
                                             Обновить
                                         </button>

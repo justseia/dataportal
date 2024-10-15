@@ -11,6 +11,7 @@ use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
@@ -91,5 +92,19 @@ class ClientController extends Controller
         }
 
         return back()->with('success', 'Успешно обновлено');
+    }
+
+    public function delete(Client $client): RedirectResponse
+    {
+        try {
+            DB::beginTransaction();
+            $client->delete();
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->withInput()->withErrors('Ошибка при удалении клиента: ' . $e->getMessage());
+        }
+
+        return redirect()->route('admin.clients.index')->with('success', 'Успешно удалено');
     }
 }
